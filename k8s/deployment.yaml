@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: isuacct
+  labels:
+    app: isuacct
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: isuacct
+  template:
+    metadata:
+      labels:
+        app: isuacct
+    spec:
+      containers:
+        - image: phanikumarps/isuacct:latest #change it to your image
+          imagePullPolicy: Always
+          name: isuacct
+          ports:
+            - name: http
+              containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: isuacct
+  labels:
+    app: isuacct
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000
+      protocol: TCP
+  selector:
+    app: isuacct
