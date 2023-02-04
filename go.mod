@@ -1,4 +1,4 @@
-module github.com/phanikumarps/isuacct
+module github.com/phanikumarps/localvm
 
 go 1.19
 
