@@ -22,12 +22,12 @@ func main() {
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	w.Write([]byte("Welcome to homepage with changes"))
+	w.Write([]byte("Welcome to homepage"))
 }
 
 func HelloWorld(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	w.Write([]byte("Hello World, new name"))
+	w.Write([]byte("Hello World"))
 }
 func LocalVM(w http.ResponseWriter, r *http.Request) {
 
