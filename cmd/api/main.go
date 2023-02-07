@@ -22,7 +22,7 @@ func main() {
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	w.Write([]byte("Welcome to homepage"))
+	w.Write([]byte("Welcome to homepage, sap ci-cd"))
 }
 
 func HelloWorld(w http.ResponseWriter, r *http.Request) {
