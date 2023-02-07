@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: localvm
+  labels:
+    app: localvm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: localvm
+  template:
+    metadata:
+      labels:
+        app: localvm
+    spec:
+      containers:
+        - image: {{ .Values.image.repository }}:{{ .Values.image.tag }} #change it to your image
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          name: localvm
+          ports:
+            - name: http
+              containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: localvm
+  labels:
+    app: localvm
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000
+      protocol: TCP
+  selector:
+    app: localvm
