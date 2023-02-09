@@ -15,7 +15,7 @@ spec:
         app: localvm
     spec:
       containers:
-        - image: phanikumarps/localvm:latest #change it to your image
+        - image: phanikumarps/localvm:alphav1
           imagePullPolicy: Always
           name: localvm
           ports:
