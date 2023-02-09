@@ -22,12 +22,12 @@ func main() {
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	w.Write([]byte("Welcome to homepage, sap ci-cd"))
+	w.Write([]byte("Welcome to homepage, ci-cd with k8"))
 }
 
 func HelloWorld(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	w.Write([]byte("Hello World"))
+	w.Write([]byte("Hello World w/ kubectl ci-cd"))
 }
 func LocalVM(w http.ResponseWriter, r *http.Request) {
 
