@@ -92,15 +92,14 @@ func LocalVMAuth(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 
-	data, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
+	if resp.StatusCode != http.StatusOK {
 		log.Println(err)
 	}
+
 	//printing the response
 	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
-	// w.Write(buf.Bytes())
-	w.Write(data)
+	w.Write([]byte("GET on LocalVM with Basic Auth worked"))
 }
 
 func basicauth(username, password string) string {
